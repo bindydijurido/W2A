@@ -3,17 +3,19 @@ package pageObjects;
 import org.openqa.selenium.By;
 import actions.Methods;
 
-public class RegistrationForm extends Methods {
+import java.nio.file.Paths;
 
-    public By firstName() {
+public class Registration extends Methods {
+
+    public static By firstName() {
         return By.xpath("/html/body/section/div/div/div/form/fieldset[1]/p[1]/input");
     }
 
-    public By lastName() {
+    public static By lastName() {
         return By.xpath("/html/body/section/div/div/div/form/fieldset[1]/p[2]/input");
     }
 
-    public void maritalStatus(String status) {
+    public static void maritalStatus(String status) {
 
         if (status == "Single") {
             driver.findElement(By.xpath("/html/body/section/div/div/div/form/fieldset[2]/div/label[1]/input")).click();
@@ -34,7 +36,7 @@ public class RegistrationForm extends Methods {
         }
     }
 
-    public void hobby(boolean dance, boolean reading, boolean cricket) {
+    public static void hobby(boolean dance, boolean reading, boolean cricket) {
 
         if (dance == true) {
             driver.findElement(By.xpath("/html/body/section/div/div/div/form/fieldset[3]/div/label[1]/input")).click();
@@ -55,11 +57,11 @@ public class RegistrationForm extends Methods {
         }
     }
 
-    public void country() {
-        driver.findElement(By.xpath("/html/body/section/div/div/div/form/fieldset[4]/select/option[1]")).sendKeys("India");
+    public static void country(String country) {
+        driver.findElement(By.xpath("/html/body/section/div/div/div/form/fieldset[4]/select/option[1]")).sendKeys(country);
     }
 
-    public void dateOfBirth(int month, int day, int year) {
+    public static void dateOfBirth(int month, int day, int year) {
 
         if (month == 1) {
             driver.findElement(By.xpath("/html/body/section/div/div/div/form/fieldset[5]/div[1]/select")).sendKeys(Integer.toString(month));
@@ -74,20 +76,35 @@ public class RegistrationForm extends Methods {
         }
     }
 
-    public void phoneNumber(int pNumber) {
+    public static void phoneNumber(int pNumber) {
         driver.findElement(By.xpath("/html/body/section/div/div/div/form/fieldset[6]/input")).sendKeys(Integer.toString(pNumber));
     }
 
-    public void userName(String userName) {
-        driver.findElement(By.xpath("/html/body/section/div/div/div/form/fieldset[7]/input")).sendKeys(userName);
+    public static By userName() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[7]/input");
     }
 
-    public void eMail(String eMail) {
-        driver.findElement(By.xpath("/html/body/section/div/div/div/form/fieldset[8]/input")).sendKeys(eMail);
+    public static By eMail() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[8]/input");
     }
 
+    public static void yourProfilePicture(String path) {
+        driver.findElement(By.xpath("/html/body/section/div/div/div/form/fieldset[9]/input")).sendKeys(Paths.get(path).toAbsolutePath().toString());
+    }
 
+    public static By aboutYourself() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[10]/textarea");
+    }
+
+    public static By password() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[11]/input");
+    }
+
+    public static By confirmPassword() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[12]/input");
+    }
+
+    public static By submitButton() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[13]/input");
+    }
 }
-
-
-
