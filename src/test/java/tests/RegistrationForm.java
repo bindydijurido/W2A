@@ -37,7 +37,6 @@ public class RegistrationForm extends Methods {
 
         driver.get("http://way2automation.com/way2auto_jquery/registration.php");
         FillSignInForm.singIntoAccount();
-
         let(Registration.submitButton()).click();
 
         Assert.assertEquals("This field is required.", let(Registration.alertNoName()).getText());
