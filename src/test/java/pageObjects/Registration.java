@@ -107,4 +107,32 @@ public class Registration extends Methods {
     public static By submitButton() {
         return By.xpath("/html/body/section/div/div/div/form/fieldset[13]/input");
     }
+
+    public static By alertNoName() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[1]/p[1]/label[2]");
+    }
+
+    public static By alertNoHobby() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[3]/div/label[1]/label");
+    }
+
+    public static By alertNoPhoneNr() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[6]/label[2]");
+    }
+
+    public static By alertNoUserName() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[7]/label[2]");
+    }
+
+    public static By alertNoEmail() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[8]/label[2]");
+    }
+
+    public static By alertNoPassword() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[11]/label[2]");
+    }
+
+    public static By alertNoPsswdConfirmation() {
+        return By.xpath("/html/body/section/div/div/div/form/fieldset[12]/label[2]");
+    }
 }
